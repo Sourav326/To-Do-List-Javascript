@@ -1,0 +1,13 @@
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-do-list{
+    list-style: none;
+}
+.to-do-list li{
+    padding: 10px;
+}
