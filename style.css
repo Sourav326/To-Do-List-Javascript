@@ -1,13 +1,151 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
 main{
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #86e1bb;
+    overflow: hidden;
+}
+
+.card{
+    border-radius: 5px 50px;
+    background-color: #ffffff;
+    width: 35%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border: 2px solid #0fc579;
+}
+.top-card h2{
+    text-align: center;
+}
+.top-card{
+    margin-bottom: 30px;
+
+}
+.bottom-card{
+    padding: 20px 0;
+}
+.top-header{
+    padding: 10px 20px;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+.tab-list{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0px 8px 0;
+}
+.tab-list ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+}
+.tab-list ul li{
+    padding-bottom: 3px;
+}
+.tab-list ul li:hover{
+    cursor: pointer;
+    color: Purple;
+    font-weight: 600;
+    border-bottom: 2px solid purple;
+}
+.tab-list button{
+    padding: 7px 15px;
+    border: 1px solid #0fc579;
+    background-color: #ffffff;
+    color: #0fc579;
+    border-radius: 6px;
+}
+.tab-list button:hover{
+    background-color: #0fc579;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.add-container{
+    display: flex;
+    justify-content: space-between;
+}
+.add-container button{
+    background-color: #ffffff;
+    font-size: 30px;
+    border: 1px solid red;
+    border-radius: 6px;
+    color: red;
+    padding: 0 15px;
+}
+
+.add-container button:hover{
+    cursor: pointer;
+    background-color: red;
+    color: #ffffff;
+}
+
+.task-input{
+    padding: 15px 10px;
+    border: 1px solid rgb(218, 218, 218);;
+    border-radius: 5px;
+    width: 80%;
 }
 
 .to-do-list{
-    list-style: none;
+    list-style-type: none;
+  margin: 0;
+  padding: 0 20px;
 }
 .to-do-list li{
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(218, 218, 218);
+    text-transform: capitalize;
 }
+
+
+.to-do-list li:last-child { 
+    border-bottom: none; 
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+}
+
+.actions .bi-trash{
+    color: red;
+}
+.actions .bi-trash:hover{
+    color: rgb(241, 99, 99);
+}
+.actions .bi-pen{
+    color: blue;
+}
+.actions .bi-pen:hover{
+    color: rgb(20, 164, 226);
+}
+.actions .bi{
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.error{
+    color: red;
+    font-size: 0.8rem;
+}
+.list-item span.checked{
+    text-decoration: line-through;
+}
+
+.list-item span{
+    line-height: 25px;
+}
+

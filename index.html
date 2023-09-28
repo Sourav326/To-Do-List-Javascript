@@ -5,18 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
     <main>
-        <div>
+        <div class="card top-card">
+            <h2>To Do List</h2>
+        </div>
+        <div class="card bottom-card">
+            <div class="top-header">
+                <div class="add-container">
+                    <input type="text" name="task-input" id="task-input" class="task-input" placeholder="Add New Task" /> 
+                    <button title="Add New Task" class="add-btn">+</button>
+                </div>
+                <span class="error"></span>
+                <div class="tab-list">
+                    <ul>
+                        <li title="All Tasks ">All</li>
+                        <li title="Pending Tasks ">Pending</li>
+                        <li title="Completed Tasks">Completed</li>
+                    </ul>
+                    <button onclick="clearAll()" title="Delete All Tasks">Clear All</button>
+                </div>
+            </div>
             <ul class="to-do-list">
-                <li>Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li>
-                <li>Task 4</li>
-                <li>Task 5</li>
+<li>No Data Available</li>
             </ul>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
