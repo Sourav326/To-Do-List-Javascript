@@ -19,14 +19,12 @@ main{
     width: 35%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border: 2px solid #0fc579;
+    margin-bottom: 30px;
 }
 .top-card h2{
     text-align: center;
 }
-.top-card{
-    margin-bottom: 30px;
 
-}
 .bottom-card{
     padding: 20px 0;
 }
@@ -38,6 +36,7 @@ main{
     display: flex;
     justify-content: space-between;
     padding: 30px 0px 8px 0;
+    align-items: center;
 }
 .tab-list ul{
     display: flex;
@@ -141,6 +140,10 @@ main{
     color: red;
     font-size: 0.8rem;
 }
+.success{
+    color: green;
+    font-size: 0.8rem;
+}
 .list-item span.checked{
     text-decoration: line-through;
 }
@@ -164,4 +167,23 @@ main{
     padding-left: 10px;
     color: #b4b4b4;
 }
+
+footer span{
+    color: red;
+
+}
+
+footer {
+    color: #ffffff;
+}
+footer a{
+    font-weight: 600;
+    font-style: italic;
+    color: #ffffff;
+}
+
+footer a:hover{
+    color: purple;
+}
+
 

@@ -9,12 +9,16 @@ let ul = document.querySelector('.to-do-list');
 let editId;
 let isEdited = false;
 
+
+
+const success = document.querySelector(".success");
+
 //Bind the list item to the list
 function createToDo(fliter){
     let li = '';
     let toDoList = JSON.parse(localStorage.getItem('to-do-list'));
     
-        if(toDoList){
+        if(toDoList && (toDoList.length > 0)){
             toDoList.forEach((toDoList,id) => {
                 let isCompleted = toDoList.status == 'completed' ? 'checked' : ''
                 li+= `<li id="${id}">
@@ -33,6 +37,11 @@ function createToDo(fliter){
             li+= '<p class="no-data">No Task Available in your to do list</p>';
         }
     ul.innerHTML = li;
+
+    success.style.display = "block";
+    setTimeout(function(){
+        success.style.display = "none";
+    },2000,success)
 }
 createToDo();
 
@@ -60,9 +69,11 @@ function handleAdd(){
                 status:'pending'
             }
             toDoList.push(data);
+            success.innerHTML = "New task Added Successfully";
         } else {
             isEdited = false;
             toDoList[editId].task = input;
+            success.innerHTML = "Task Updated Successfully";
         }
         inputElement.value = "";
        
@@ -84,6 +95,7 @@ function handleCheckBox(selected){
         toDoList[selected.id].status = 'pending'
     }
     localStorage.setItem("to-do-list",JSON.stringify(toDoList));
+        success.innerHTML = "Task Status Changed Successfully";
     createToDo()
 }
 
@@ -99,6 +111,7 @@ function editTask(id,task){
 function deleteTask(id){
     toDoList.splice(id,1);
     localStorage.setItem("to-do-list",JSON.stringify(toDoList));
+    success.innerHTML = "Task Deleted Successfully";
     createToDo()
 }
 
@@ -108,10 +121,4 @@ function clearAll(){
     localStorage.removeItem("to-do-list");
     // createToDo();
     location.reload();
-}
-
-
-function filter(filterValue){
-    console.log(filterValue);
-
 }
