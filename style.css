@@ -148,4 +148,20 @@ main{
 .list-item span{
     line-height: 25px;
 }
+.list-item{
+    width: 75%;
+}
+
+.no-data{
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.task-status{
+    font-style: italic;
+    font-size: 0.8rem;
+    padding-left: 10px;
+    color: #b4b4b4;
+}
 

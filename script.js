@@ -6,8 +6,11 @@ let toDoList = JSON.parse(localStorage.getItem('to-do-list'));
 let ul = document.querySelector('.to-do-list');
 
 
+let editId;
+let isEdited = false;
+
 //Bind the list item to the list
-function createToDo(){
+function createToDo(fliter){
     let li = '';
     let toDoList = JSON.parse(localStorage.getItem('to-do-list'));
     
@@ -18,15 +21,16 @@ function createToDo(){
                 <div class="list-item">
                     <input type="checkbox" onclick="handleCheckBox(this)" id="${id}" ${isCompleted}>
                     <span class="${isCompleted}">${toDoList.task}</span>
+                    <span class="task-status">${toDoList.status}</span>
                 </div>
                 <div class="actions">
-                    <i class="bi bi-pen" title="Edit Task"></i>
+                    <i class="bi bi-pen" title="Edit Task" onclick="editTask(${id},'${toDoList.task}')"></i>
                     <i class="bi bi-trash" title="Delete Task" onclick="deleteTask(${id})"></i>
                 </div>
             </li> `
             });
         } else {
-            li+= 'No data';
+            li+= '<p class="no-data">No Task Available in your to do list</p>';
         }
     ul.innerHTML = li;
 }
@@ -46,16 +50,22 @@ function handleAdd(){
             error.style.display = "none";
         },2000,error)
     } else{
-        if(!toDoList){
-            toDoList = [];
+
+        if(isEdited == false){
+            if(!toDoList){
+                toDoList = [];
+            }
+            let data = {
+                task:input,
+                status:'pending'
+            }
+            toDoList.push(data);
+        } else {
+            isEdited = false;
+            toDoList[editId].task = input;
         }
         inputElement.value = "";
        
-        let data = {
-            task:input,
-            status:'pending'
-        }
-        toDoList.push(data);
         localStorage.setItem("to-do-list",JSON.stringify(toDoList));
         createToDo();
     } 
@@ -74,9 +84,17 @@ function handleCheckBox(selected){
         toDoList[selected.id].status = 'pending'
     }
     localStorage.setItem("to-do-list",JSON.stringify(toDoList));
+    createToDo()
 }
 
 
+// Edit a perticular task
+function editTask(id,task){
+    editId = id;
+    isEdited = true;
+    let inputElement = document.querySelector('#task-input');
+    inputElement.value = task;
+}
 // Delete a perticular task
 function deleteTask(id){
     toDoList.splice(id,1);
@@ -90,4 +108,10 @@ function clearAll(){
     localStorage.removeItem("to-do-list");
     // createToDo();
     location.reload();
+}
+
+
+function filter(filterValue){
+    console.log(filterValue);
+
 }
