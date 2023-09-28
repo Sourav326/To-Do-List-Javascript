@@ -11,6 +11,10 @@ main{
     align-items: center;
     background: #86e1bb;
     overflow: hidden;
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .card{
